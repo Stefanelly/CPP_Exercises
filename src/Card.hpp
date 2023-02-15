@@ -1,21 +1,38 @@
 #pragma once
 #include <iostream>
 #include <string>
-
-class Card
-{
-};
-
 enum class CardType
 {
     Monster,
     Spell,
     Trap
 };
-
-std::string to_string(CardType cardType)
+class Card
 {
-    switch (cardType)
+    // get_id get_type get_name get_description set_name set_description
+public:
+    Card(const std::string &id, const CardType &type) : _id{id}, _type{type} {}
+
+    std::string get_id() { return _id; }
+
+    CardType get_type() { return _type; }
+
+    std::string get_name() { return _name; }
+    std::string get_description() { return _description; }
+
+    void set_name(const std::string &name) { _name = name; }
+    void set_description(const std::string &description) { _description = description; }
+
+private:
+    const std::string _id;
+    const CardType _type;
+    std::string _name;
+    std::string _description;
+};
+
+std::string to_string(const CardType &type)
+{
+    switch (type)
     {
     case CardType::Monster:
         return "Monster";
