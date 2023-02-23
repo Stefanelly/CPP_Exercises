@@ -32,7 +32,11 @@ const std::string to_string(SpellType type)
 class Spell : public Card
 {
 public:
-    Spell(const std::string &id, const std::string &name, const SpellType &type) : Card{id, CardType::Spell}, _type{type} { set_name(name); }
+    Spell(const std::string &id, const std::string &name, const SpellType &type) : Card{id, CardType::Spell}, _type{type}
+    {
+        set_name(name);
+        _symbol = to_string(type);
+    }
     const SpellType &get_spell_type() { return _type; }
 
 private:

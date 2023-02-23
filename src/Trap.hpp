@@ -26,7 +26,11 @@ std::string to_string(TrapType type)
 class Trap : public Card
 {
 public:
-    Trap(const std::string &id, const std::string &name, const TrapType &type) : Card{id, CardType::Trap}, _type{type} { set_name(name); }
+    Trap(const std::string &id, const std::string &name, const TrapType &type) : Card{id, CardType::Trap}, _type{type}
+    {
+        set_name(name);
+        _symbol = to_string(type);
+    }
 
     const TrapType &get_trap_type() { return _type; }
 

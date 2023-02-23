@@ -42,6 +42,7 @@ public:
         : Card{id, CardType::Monster}, _attribute{attribute}, _type{type}, _atk{atk}, _def{def}
     {
         set_name(name);
+        _symbol = to_symbol(attribute);
     }
     const Attribute &get_attribute() const { return _attribute; }
     int get_atk() const { return _atk; }
@@ -58,7 +59,4 @@ private:
     const std::string &_type;
     const int _atk;
     const int _def;
-    // const std::string &_id;
-    // const std::string &_type;
-    // const std::string &_name;
 };
