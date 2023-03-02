@@ -7,12 +7,10 @@
 class ArrayNode : public Node
 {
 public:
-    ArrayNode() {}
     ArrayNode(int n)
-        : _n { n }
+        : Node(NodeKind::ARRAY)
+        , _n { n }
     {}
-
-    NodeKind                   kind() { return NodeKind::ARRAY; }
     std::string                print() const override { return "[]"; }
     int                        data() { return _n; }
     std::unique_ptr<ArrayNode> make_ptr() { return std::unique_ptr<ArrayNode>(this); }
